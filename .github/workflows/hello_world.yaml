@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: hello world
-        run: ls -la
+        run: find $(pwd)
         shell: bash
 
 
@@ -23,5 +23,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: goodbye world
-        run: ls -la
+        run: find $(pwd)
         shell: bash
