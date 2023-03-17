@@ -7,3 +7,6 @@ test('renders learn react link', () => {
   expect(linkElement).toBeInTheDocument();
 });
 
+test("Intentionally fails", () => {
+  expect(true).toBe(false);
+});
