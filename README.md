@@ -55,3 +55,10 @@ jobs:
 もし、`build-and-test`が失敗すれば、マージをすることはできなくなる。
 
 ![](/assets/screen_shot_of_branch_protection_setting.png)
+
+
+## Github Actionsをデバッグする方法
+
+ワークフローを更新するたびに、毎回リモートリポジトリにpushして動作確認をするのは大変。
+
+[act](https://github.com/nektos/act)を使用すると、ローカルでワークフローを実行できる。便利。
