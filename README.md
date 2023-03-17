@@ -1,10 +1,22 @@
 # github-actions-example
 
+「フロントエンドの開発のCI/CD with Gtihub Actions」 のサンプルディレクトリです。
 
-## mainブランチへのマージの前にテストを実行して、失敗した場合マージを拒否する
+## ディレクトリ構成
+
+```txt
+.
+├── README.md
+├── ./github/workflows      # Github Actionsのワークフローを格納するディレクトリ
+└── frontend                # `create-react-app`を使って作成した最小限のReactプロジェクト
+```
 
 
-`.github/workflows`に下のようなワークフローを用意する
+## mainブランチへのマージの前にテストを実行して、失敗した場合マージできないように設定する
+
+### STEP1. テストを実行するGithub Actionsを作成
+
+ `.github/workflows`に下記のようなファイルを作成する
 
 ```yml
 name: Continuous Integration
@@ -18,10 +30,6 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [18.x]
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -29,7 +37,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 18.x
 
     - name: Install dependencies
       working-directory: frontend
@@ -40,6 +48,10 @@ jobs:
       run: npm test -- --coverage --watchAll=false
 ```
 
-Githubのブランチ保護のルールを記載
+### STEP2. Githubのブランチ保護のルールを記載
 
-![](/assets/スクリーンショット_ブランチ保護.png)
+下の画像のように設定することで、 上のYMLで定義した`build-and-test`ジョブをマージの前に実行できる。
+
+もし、`build-and-test`が失敗すれば、マージをすることはできなくなる。
+
+![](/assets/screen_shot_of_branch_protection_setting.png)
