@@ -40,7 +40,7 @@ jobs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v3.14.0
       with:
-        token: ${{ secrets.CLIENT_TOKEN}}
+        token: ${{ secrets.CLIENT_TOKEN }}
         path: tmp
         commit-message: auto generated from ${{ github.event.pull_request.html_url }}
         title: ${{ github.event.pull_request.title }}
