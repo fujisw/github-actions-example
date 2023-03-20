@@ -18,11 +18,10 @@ jobs:
         repository: fujisw/github-actions-example-openapi-client-repository
         path: tmp
         
-    # コード生成
-    # - name: Generate code
-    #   uses: docker://openapitools/openapi-generator-cli
-    #   with:
-    #     args: generate -g typescript-axios -i openapi/spec.yml -o ./tmp/__generated__
+    - name: Generate code
+      uses: docker://openapitools/openapi-generator-cli
+      with:
+        args: generate -g typescript-axios -i openapi/spec.yml -o ./tmp/__generated__
 
     - name: Show output
       run: ls -la ./tmp/__generated__
