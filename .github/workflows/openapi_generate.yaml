@@ -2,6 +2,11 @@ name: OpenAPI Client Generate
 
 on:
   workflow_dispatch:
+    inputs:
+      title:
+        type: string
+        required: true
+        description: "Title of Pull Request"
 
 jobs:
   generate-code:
@@ -37,7 +42,6 @@ jobs:
         token: ${{ secrets.CLIENT_TOKEN}}
         path: tmp
         commit-message: auto generated from ${{ github.event.pull_request.html_url }}
-        title: ${{ github.event.pull_request.title }}
-        body: ${{ github.event.pull_request.html_url }}
+        title: ${{ github.event.inputs.title }}
         branch: feature/codegen
         branch-suffix: short-commit-hash
