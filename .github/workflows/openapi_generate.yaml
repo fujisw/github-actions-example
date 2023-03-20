@@ -35,9 +35,6 @@ jobs:
       with:
         args: generate -g typescript-axios -i openapi/spec.yml -o ./tmp/__generated__
 
-    - name: Show output
-      run: ls -la ./tmp/__generated__
-    
     - name: Grant file permissions to prevent error on `Create Pull Request` step
       run: sudo chown -R $USER:$USER .
 
