@@ -6,10 +6,13 @@ on:
       - main
     types:
       - "closed"
+    paths:
+      - 'spec.yml'
   
 
 jobs:
   generate-code:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
@@ -31,8 +34,7 @@ jobs:
     - name: Show output
       run: ls -la ./tmp/__generated__
     
-    # ファイルの権限付与※付与しないとPullRequest作成ステップで失敗することがある
-    - name: Grant file permissions
+    - name: Grant file permissions to prevent error on `Create Pull Request` step
       run: sudo chown -R $USER:$USER .
 
     - name: Create Pull Request
