@@ -1,0 +1,44 @@
+name: OpenAPI Client Generate
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate-code:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Checkout Client Respository
+      uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.CLIENT_TOKEN }}
+        repository: fujisw/github-actions-example-openapi-client-repository
+        path: tmp
+        
+    # コード生成
+    # - name: Generate code
+    #   uses: docker://openapitools/openapi-generator-cli
+    #   with:
+    #     args: generate -g typescript-axios -i openapi/spec.yml -o ./tmp/__generated__
+
+    - name: Show output
+      run: ls -la ./tmp/__generated__
+    
+    # # ファイルの権限付与※付与しないとPullRequest作成ステップで失敗することがある
+    # - name: Grant file permissions
+    #   run: |
+    #     sudo chown -R $USER:$USER .
+
+    # # OpenAPIClientにPullRequestを送る
+    # - uses: peter-evans/create-pull-request@v3.14.0
+    #   with:
+    #     token: ${{ secrets.IOS_CODE_GEN_TOKEN }}
+    #     path: client
+    #     commit-message: auto generated from ${{ github.event.pull_request.html_url }}
+    #     title: ${{ github.event.pull_request.title }}
+    #     body: ${{ github.event.pull_request.html_url }}
+    #     branch: feature/codegen
+    #     branch-suffix: short-commit-hash
