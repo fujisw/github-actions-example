@@ -1,12 +1,12 @@
 name: OpenAPI Client Generate
 
 on:
-  workflow_dispatch:
-    inputs:
-      title:
-        type: string
-        required: true
-        description: "Title of Pull Request"
+  pull_request:
+    branches:
+      - main
+    types:
+      - "closed"
+  
 
 jobs:
   generate-code:
@@ -33,15 +33,15 @@ jobs:
     
     # ファイルの権限付与※付与しないとPullRequest作成ステップで失敗することがある
     - name: Grant file permissions
-      run: |
-        sudo chown -R $USER:$USER .
+      run: sudo chown -R $USER:$USER .
 
-    # # OpenAPIClientにPullRequestを送る
-    - uses: peter-evans/create-pull-request@v3.14.0
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v3.14.0
       with:
         token: ${{ secrets.CLIENT_TOKEN}}
         path: tmp
         commit-message: auto generated from ${{ github.event.pull_request.html_url }}
-        title: ${{ github.event.inputs.title }}
+        title: ${{ github.event.pull_request.title }}
+        body: ${{ github.event.pull_request.html_url }}
         branch: feature/codegen
         branch-suffix: short-commit-hash
