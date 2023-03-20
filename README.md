@@ -48,6 +48,23 @@ Githubに何でも良いのでファイルを`push`してみよう！
 
 ![](/assets/screenshot_helloworld_workflow.png)
 
+## 更なる学習
+以下は個人的なおすすめ教材へのリンクです。
+
+### [GitHub Actions: The Full Course - Learn by Doing!](https://www.youtube.com/playlist?list=PLArH6NjfKsUhvGHrpag7SuPumMzQRhUKY)
+GithubActionsをハンズオン形式で全般的に解説した動画。
+
+Github Actionsのチュートリアルだけでなく、CI/CDの解説も充実している。
+
+英語なのが難点だが、第一回の動画は日本語字幕があるので大丈夫。
+
+### [チートシート](https://zenn.dev/masaaania/articles/c930f2f755a577)
+
+GithubActionsを用いてどのようなことができるかがざっくりと記載されている。
+
+これら全てを今覚える必要は全くないが、一度目を通しておくと、今後の課題解決のアイデア創出に役立ちそう。
+
+
 
 # 実践演習
 
