@@ -708,6 +708,8 @@ components:
           description: User Status
           format: int32
           example: 1
+        updated_at:
+          type: integer
       xml:
         name: user
     Tag:
