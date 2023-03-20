@@ -1,6 +1,6 @@
 # github-actions-example
 
-「フロントエンドの開発のCI/CD with Gtihub Actions」 のサンプルディレクトリです。
+Github Actionsを使用したアレコレをまとめました。
 
 ## ディレクトリ構成
 
