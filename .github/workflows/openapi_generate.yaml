@@ -26,18 +26,17 @@ jobs:
     - name: Show output
       run: ls -la ./tmp/__generated__
     
-    # # ファイルの権限付与※付与しないとPullRequest作成ステップで失敗することがある
-    # - name: Grant file permissions
-    #   run: |
-    #     sudo chown -R $USER:$USER .
+    # ファイルの権限付与※付与しないとPullRequest作成ステップで失敗することがある
+    - name: Grant file permissions
+      run: |
+        sudo chown -R $USER:$USER .
 
     # # OpenAPIClientにPullRequestを送る
-    # - uses: peter-evans/create-pull-request@v3.14.0
-    #   with:
-    #     token: ${{ secrets.IOS_CODE_GEN_TOKEN }}
-    #     path: client
-    #     commit-message: auto generated from ${{ github.event.pull_request.html_url }}
-    #     title: ${{ github.event.pull_request.title }}
-    #     body: ${{ github.event.pull_request.html_url }}
-    #     branch: feature/codegen
-    #     branch-suffix: short-commit-hash
+    - uses: peter-evans/create-pull-request@v3.14.0
+      with:
+        path: tmp
+        commit-message: auto generated from ${{ github.event.pull_request.html_url }}
+        title: ${{ github.event.pull_request.title }}
+        body: ${{ github.event.pull_request.html_url }}
+        branch: feature/codegen
+        branch-suffix: short-commit-hash
