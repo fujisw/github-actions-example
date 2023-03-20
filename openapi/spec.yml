@@ -722,6 +722,7 @@ components:
         name: tag
     Pet:
       required:
+        - id
         - name
         - photoUrls
       type: object
@@ -729,7 +730,7 @@ components:
         id:
           type: integer
           format: int64
-          example: 11
+          example: 10
         name:
           type: string
           example: doggie
