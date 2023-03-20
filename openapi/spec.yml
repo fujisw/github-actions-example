@@ -722,6 +722,7 @@ components:
         name: tag
     Pet:
       required:
+        - id
         - name
         - photoUrls
       type: object
