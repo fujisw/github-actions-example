@@ -8,7 +8,8 @@
 .
 ├── README.md
 ├── ./github/workflows      # Github Actionsのワークフローを格納するディレクトリ
-└── frontend                # `create-react-app`を使って作成した最小限のReactプロジェクト
+├── frontend                # `create-react-app`を使って作成した最小限のReactプロジェクト
+└── openapi                 # OpenAPIのSPECファイルが格納されている
 ```
 
 ## Github Actionsとは
@@ -170,9 +171,6 @@ jobs:
 
 ### STEP4 ワークフローを作成する
 
-<details>
-<summary> ./github/workflows/openapi_genereate.yaml </summary>
-
 ```yml
 # ./github/workflows/openapi_genereate.yaml
 
@@ -226,8 +224,6 @@ jobs:
         branch: feature/codegen
         branch-suffix: short-commit-hash
 ```
-
-</details>
 
 
 ### 解説
