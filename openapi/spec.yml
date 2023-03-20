@@ -730,7 +730,7 @@ components:
         id:
           type: integer
           format: int64
-          example: 10
+          example: 11
         name:
           type: string
           example: doggie
