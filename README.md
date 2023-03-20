@@ -21,9 +21,9 @@
 ## Hello Worldを作ってみる
 
 ### STEP1　ワークフローを作成
-`./github/workflows/hello_world.yaml`
 
 ```yaml
+# ./github/workflows/hello_world.yaml
 name: Hello_Github_Actions
 on:
   push:
@@ -55,9 +55,9 @@ Githubに何でも良いのでファイルを`push`してみよう！
 
 ### STEP1. テストを実行するGithub Actionsを作成
 
- `.github/workflows/ci.yaml`
 
 ```yml
+# .github/workflows/ci.yaml
 name: Continuous Integration
 
 on:
