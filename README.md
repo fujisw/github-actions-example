@@ -48,8 +48,13 @@ Githubに何でも良いのでファイルを`push`してみよう！
 
 ![](/assets/screenshot_helloworld_workflow.png)
 
-## 更なる学習
-以下は個人的なおすすめ教材へのリンクです。
+## リンク
+
+### [act](https://github.com/nektos/act)
+
+ワークフローを更新するたびに、毎回リモートリポジトリにpushして動作確認をするのは大変。
+
+actを使用すると、ローカル環境でワークフローを実行できる。便利。
 
 ### [GitHub Actions: The Full Course - Learn by Doing!](https://www.youtube.com/playlist?list=PLArH6NjfKsUhvGHrpag7SuPumMzQRhUKY)
 GithubActionsをハンズオン形式で全般的に解説した動画。
@@ -68,7 +73,7 @@ GithubActionsを用いてどのようなことができるかがざっくりと�
 
 # 実践演習
 
-## mainブランチへのマージの前にテストを実行して、失敗した場合マージできないように設定する
+## mainブランチへのマージの前にテストを実行して、<br/>失敗した場合マージできないように設定する
 
 ### STEP1. テストを実行するGithub Actionsを作成
 
@@ -111,10 +116,3 @@ jobs:
 もし、`build-and-test`が失敗すれば、マージをすることはできなくなる。
 
 ![](/assets/screen_shot_of_branch_protection_setting.png)
-
-
-## Github Actionsをデバッグする方法
-
-ワークフローを更新するたびに、毎回リモートリポジトリにpushして動作確認をするのは大変。
-
-[act](https://github.com/nektos/act)を使用すると、ローカルでワークフローを実行できる。便利。
